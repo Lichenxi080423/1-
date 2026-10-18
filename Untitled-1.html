@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>长征万里 薪火千秋 —— 纪念长征胜利九十周年</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "SimSun", serif;
+            color: #3a1a0a;
+            background: #fdf6ec;
+        }
+
+        /* 顶部横幅 */
+        .banner {
+            background: linear-gradient(135deg, #8b0000, #cc0000, #8b0000);
+            color: #ffd700;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: "★";
+            position: absolute;
+            font-size: 300px;
+            opacity: 0.08;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .banner h1 {
+            font-size: 3em;
+            letter-spacing: 12px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .banner .subtitle {
+            font-size: 1.4em;
+            letter-spacing: 6px;
+            opacity: 0.9;
+        }
+
+        .banner .year {
+            margin-top: 30px;
+            font-size: 1.1em;
+            letter-spacing: 4px;
+            opacity: 0.8;
+        }
+
+        /* 引言区 */
+        .intro {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 30px;
+            text-align: center;
+        }
+
+        .intro .quote {
+            font-size: 1.5em;
+            color: #8b0000;
+            font-style: italic;
+            line-height: 2;
+            border-left: 4px solid #cc0000;
+            border-right: 4px solid #cc0000;
+            padding: 20px 30px;
+            background: #fff8f0;
+        }
+
+        /* 内容区 */
+        .content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #8b0000;
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #cc0000;
+            margin: 10px auto 0;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            line-height: 2;
+            text-indent: 2em;
+            margin-bottom: 15px;
+            color: #4a2a1a;
+        }
+
+        /* 精神卡片 */
+        .spirit-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: #fff;
+            border: 2px solid #cc0000;
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(139, 0, 0, 0.2);
+        }
+
+        .card .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #8b0000;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.95em;
+            line-height: 1.8;
+            color: #5a3a2a;
+            text-indent: 0;
+        }
+
+        /* 时间线 */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #cc0000;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item .time-content {
+            width: 45%;
+            background: #fff;
+            border: 1px solid #e0c0a0;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .timeline-item .time-content h3 {
+            color: #8b0000;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item .time-content p {
+            text-indent: 0;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        .timeline-item::after {
+            content: "●";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #cc0000;
+            font-size: 1.2em;
+        }
+
+        /* 底部 */
+        .footer {
+            background: linear-gradient(135deg, #8b0000, #cc0000);
+            color: #ffd700;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer p {
+            font-size: 1.2em;
+            letter-spacing: 3px;
+            line-height: 2;
+        }
+
+        .footer .motto {
+            font-size: 1.5em;
+            margin-top: 15px;
+            letter-spacing: 6px;
+        }
+
+        /* 响应式适配手机 */
+        @media (max-width: 768px) {
+            .banner h1 {
+                font-size: 2em;
+                letter-spacing: 6px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start;
+                padding-left: 50px;
+            }
+
+            .timeline-item .time-content {
+                width: 100%;
+            }
+
+            .timeline-item::after {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部横幅 -->
+    <header class="banner">
+        <h1>长征万里&nbsp;&nbsp;薪火千秋</h1>
+        <div class="subtitle">纪念中国工农红军长征胜利九十周年</div>
+        <div class="year">1936 — 2026</div>
+    </header>
+
+    <!-- 引言 -->
+    <section class="intro">
+        <div class="quote">
+            红军不怕远征难，万水千山只等闲。<br>
+            五岭逶迤腾细浪，乌蒙磅礴走泥丸。<br>
+            金沙水拍云崖暖，大渡桥横铁索寒。<br>
+            更喜岷山千里雪，三军过后尽开颜。
+            <br><br>
+            <span style="font-size: 0.7em; color: #666;">—— 毛泽东《七律·长征》</span>
+        </div>
+    </section>
+
+    <!-- 正文内容 -->
+    <main class="content">
+
+        <!-- 长征概述 -->
+        <div class="section">
+            <h2>伟大远征</h2>
+            <p>1934年10月至1936年10月，中国共产党领导中国工农红军，历经两年时间，跨越万水千山，完成了震撼世界、彪炳史册的二万五千里长征。红军将士以坚定的革命信念、大无畏的英雄气概，突破了数十万敌军的围追堵截，翻越了雪山草地，渡过了激流险滩，最终实现了三大主力胜利会师。</p >
+            <p>长征是人类历史上的伟大壮举，是中国共产党和中国革命事业从挫折走向胜利的伟大转折，开启了为实现民族独立、人民解放而斗争的新的伟大进军，是中华民族伟大复兴历史进程中的巍峨丰碑。</p >
+        </div>
+
+        <!-- 伟大长征精神 -->
+        <div class="section">
+            <h2>伟大长征精神</h2>
+            <div class="spirit-cards">
+                <div class="card">
+                    <div class="icon">🔥</div>
+                    <h3>坚定信念</h3>
+                    <p>把全国人民和中华民族的根本利益看得高于一切，坚定革命的理想和信念，坚信正义事业必然胜利。</p >
+                </div>
+                <div class="card">
+                    <div class="icon">⛰️</div>
+                    <h3>不怕牺牲</h3>
+                    <p>为了救国救民，不怕任何艰难险阻，不惜付出一切牺牲，以血肉之躯铸就钢铁意志。</p >
+                </div>
+                <div class="card">
+                    <div class="icon">🧭</div>
+                    <h3>实事求是</h3>
+                    <p>坚持独立自主、实事求是，一切从实际出发，在危急关头牢牢把握正确方向。</p >
+                </div>
+                <div class="card">
+                    <div class="icon">🤝</div>
+                    <h3>紧密团结</h3>
+                    <p>顾全大局、严守纪律、紧密团结，以铁的纪律和坚定的团结战胜一切困难。</p >
+                </div>
+                <div class="card">
+                    <div class="icon">❤️</div>
+                    <h3>依靠人民</h3>
+                    <p>紧紧依靠人民群众，同人民群众生死相依、患难与共、艰苦奋斗。</p >
+                </div>
+            </div>
+        </div>
+
+        <!-- 长征重要节点 -->
+        <div class="section">
+            <h2>长征重要节点</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time-content">
+                        <h3>1934年10月 · 瑞金出发</h3>
+                        <p>中央红军从江西瑞金、于都等地出发，开始战略大转移。</p >
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time-content">
+                        <h3>1935年1月 · 遵义会议</h3>
+                        <p>确立了毛泽东同志在红军和党中央的领导地位，是党的历史上生死攸关的转折点。</p >
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time-content">
+                        <h3>1935年5月 · 飞越大渡河</h3>
+                        <p>红军强渡大渡河、飞夺泸定桥，粉碎了敌人让红军成为"石达开第二"的妄想。</p >
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time-content">
+                        <h3>1935年6-8月 · 过雪山草地</h3>
+                        <p>红军翻越终年积雪的夹金山，穿越茫茫草地，以惊人的毅力战胜了极端恶劣的自然环境。</p >
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time-content">
+                        <h3>1935年10月 · 到达陕北</h3>
+                        <p>中央红军到达陕北吴起镇，与陕北红军胜利会师。</p >
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time-content">
+                        <h3>1936年10月 · 三大主力会师</h3>
+                        <p>红一、二、四方面军在甘肃会宁、将台堡胜利会师，长征胜利结束。</p >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 新时代传承 -->
+        <div class="section">
+            <h2>薪火相传</h2>
+            <p>每一代人有每一代人的长征路，每一代人都要走好自己的长征路。九十年后的今天，伟大长征精神依然是鼓舞和激励中国人民不断攻坚克难、从胜利走向胜利的强大精神动力。</p >
+         <p>2026年，全国各地广泛开展纪念长征胜利九十周年系列活动——主题展览、红色宣讲、文艺巡演、研学体验……人们走进革命旧址、纪念场所，在致敬英雄中赓续伟大长征精神，在抚今追昔中坚定前行意志，将红色薪火代代相传。</p >
+        </div>
+
+    </main>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <p>走好新时代的长征路</p >
+        <p class="motto">不忘初心&nbsp;&nbsp;牢记使命</p >
+    </footer>
+
+</body>
+</html>
